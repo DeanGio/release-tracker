@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: com.deangio.releasetracker.api.DeploymentControllerTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.854 s <<< FAILURE! -- in com.deangio.releasetracker.api.DeploymentControllerTest
+com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusReturns409WhenRepositoryLosesRace -- Time elapsed: 0.024 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 409
+ but was: 400
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.lambda$15(DeploymentControllerTest.java:253)
+	at io.javalin.testtools.TestTool.test$lambda$0(TestTool.kt:43)
+	at io.javalin.testtools.TestTool.runAndCaptureLogs(TestTool.kt:71)
+	at io.javalin.testtools.TestTool.test(TestTool.kt:40)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt:13)
+	at io.javalin.testtools.JavalinTest.test$default(JavalinTest.kt:12)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusReturns409WhenRepositoryLosesRace(DeploymentControllerTest.java:249)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+
+com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusTransitionsAndPersists -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 200
+ but was: 400
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.lambda$12(DeploymentControllerTest.java:223)
+	at io.javalin.testtools.TestTool.test$lambda$0(TestTool.kt:43)
+	at io.javalin.testtools.TestTool.runAndCaptureLogs(TestTool.kt:71)
+	at io.javalin.testtools.TestTool.test(TestTool.kt:40)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt:13)
+	at io.javalin.testtools.JavalinTest.test$default(JavalinTest.kt:12)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusTransitionsAndPersists(DeploymentControllerTest.java:217)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+

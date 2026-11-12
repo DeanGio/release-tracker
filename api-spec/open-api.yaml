@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: Release Tracker API
+  version: 0.1.0
+  description: >
+    Tracks deployments across environments. Errors come in two formats.
+    Errors raised in the controller and parsing layer return text/plain.
+    Domain rule violations on PATCH return application/json {"error": string}.
+servers:
+  - url: http://localhost:7070
+
+paths:
+  /api/deployments:
+    get:
+      operationId: listDeployments
+      summary: List deployments, newest first
+      description: Ordered by startTime descending, with id as the tiebreaker.
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+        - name: offset
+          in: query
+          schema: { type: integer, minimum: 0, default: 0 }
+      responses:
+        "200":
+          description: A page of deployments.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeploymentPage"
+        "400":
+          description: >
+            limit outside 1 to 100, or offset below 0. Body is JSON keyed by the
+            parameter name, with one entry per failed check.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidationErrors"
+    post:
+      operationId: createDeployment
+      summary: Record a deployment that has started
+      description: >
+        startTime is set by the server to the current time, truncated to microseconds.
+        The deployment starts as IN_PROGRESS with no endTime.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateDeploymentRequest"
+      responses:
+        "201":
+          description: Created. The Location header points to the new deployment.
+          headers:
+            Location:
+              schema: { type: string, format: uri-reference }
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Deployment"
+        "400":
+          description: >
+            Malformed JSON, an unknown environment, or a blank serviceName or version.
+            Body is plain text.
+          content:
+            text/plain:
+              schema: { type: string }
+              example: "service name must not be blank"
+
+  /api/deployments/{id}:
+    get:
+      operationId: getDeployment
+      summary: Get one deployment
+      parameters:
+        - $ref: "#/components/parameters/DeploymentId"
+      responses:
+        "200":
+          description: The deployment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Deployment"
+        "400":
+          description: The id is not a valid UUID. Body is plain text.
+          content:
+            text/plain:
+              schema: { type: string }
+              example: "Malformed deployment id"
+        "404":
+          description: No deployment with this id. Body is plain text.
+          content:
+            text/plain:
+              schema: { type: string }
+              example: "Deployment 00000000-0000-0000-0000-000000000000 not found"
+
+  /api/deployments/{id}/status:
+    patch:
+      operationId: transitionDeploymentStatus
+      summary: Move an IN_PROGRESS deployment to SUCCEEDED or FAILED
+      description: >
+        Only IN_PROGRESS deployments can transition, and only to SUCCEEDED or FAILED.
+        endTime is required for SUCCEEDED or FAILED and must not be before startTime.
+        The update is conditional on the row still being IN_PROGRESS, so when two
+        requests race, one succeeds and the other receives 409.
+      parameters:
+        - $ref: "#/components/parameters/DeploymentId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransitionDeploymentRequest"
+      responses:
+        "200":
+          description: The updated deployment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Deployment"
+        "400":
+          description: >
+            Malformed id, malformed JSON, or missing transitionTo (text/plain).
+            endTime missing for SUCCEEDED or FAILED, or endTime before startTime
+            (application/json).
+          content:
+            text/plain:
+              schema: { type: string }
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+        "404":
+          description: No deployment with this id. Body is plain text.
+          content:
+            text/plain:
+              schema: { type: string }
+        "409":
+          description: >
+            The deployment is not IN_PROGRESS, or the target is IN_PROGRESS, or a
+            concurrent request completed the deployment first.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+
+components:
+  parameters:
+    DeploymentId:
+      name: id
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+
+  schemas:
+    TargetEnvironment:
+      type: string
+      enum: [DEV, STAGING, PROD]
+
+    DeploymentStatus:
+      type: string
+      enum: [IN_PROGRESS, SUCCEEDED, FAILED]
+
+    Deployment:
+      type: object
+      required: [id, serviceName, version, environment, status, startTime]
+      properties:
+        id: { type: string, format: uuid }
+        serviceName: { type: string }
+        version: { type: string }
+        environment: { $ref: "#/components/schemas/TargetEnvironment" }
+        status: { $ref: "#/components/schemas/DeploymentStatus" }
+        startTime:
+          type: string
+          format: date-time
+          description: ISO-8601 UTC. Fractional seconds have 0, 3, or 6 digits.
+        endTime:
+          type: [string, "null"]
+          format: date-time
+          description: Same format as startTime. Null while IN_PROGRESS.
+      example:
+        id: 3f2a9c1e-8b7d-4e6a-9f10-2c5d7a8b9e01
+        serviceName: checkout-api
+        version: 2.4.1
+        environment: PROD
+        status: SUCCEEDED
+        startTime: "2026-11-10T14:03:22.418213Z"
+        endTime: "2026-11-10T14:11:05Z"
+
+    CreateDeploymentRequest:
+      type: object
+      required: [serviceName, version, environment]
+      additionalProperties: false
+      properties:
+        serviceName: { type: string, minLength: 1 }
+        version: { type: string, minLength: 1 }
+        environment: { $ref: "#/components/schemas/TargetEnvironment" }
+      example:
+        serviceName: checkout-api
+        version: 2.4.1
+        environment: PROD
+
+    TransitionDeploymentRequest:
+      type: object
+      required: [transitionTo]
+      additionalProperties: false
+      properties:
+        transitionTo: { $ref: "#/components/schemas/DeploymentStatus" }
+        endTime:
+          type: [string, "null"]
+          format: date-time
+          description: >
+            Required for SUCCEEDED or FAILED. Must not be before startTime.
+            Omit or send null for IN_PROGRESS, though that target is rejected with 409.
+      example:
+        transitionTo: SUCCEEDED
+        endTime: "2026-11-10T14:11:05Z"
+
+    DeploymentPage:
+      type: object
+      required: [items, limit, offset, total]
+      properties:
+        items:
+          type: array
+          items: { $ref: "#/components/schemas/Deployment" }
+        limit: { type: integer }
+        offset: { type: integer }
+        total: { type: integer, format: int64 }
+        nextOffset:
+          type: [integer, "null"]
+          description: Offset of the next page, or null on the last page.
+
+    ErrorMessage:
+      type: object
+      required: [error]
+      properties:
+        error: { type: string }
+
+    ValidationErrors:
+      type: object
+      description: Map from parameter name to the list of failed checks for it.
+      additionalProperties:
+        type: array
+        items:
+          type: object
+          required: [message, args, value]
+          properties:
+            message:
+              type: string
+              description: >
+                A check message from the controller (for example, "limit must be between
+                1 and 100"), or a Javalin code such as TYPE_CONVERSION_FAILED when the
+                value cannot be parsed as the expected type.
+            args:
+              type: object
+              additionalProperties: true
+            value:
+              description: The rejected input, echoed back as a string.
+      examples:
+        outOfRange:
+          value:
+            limit:
+              - message: "limit must be between 1 and 100"
+                args: {}
+                value: 0
+        notAnInteger:
+          value:
+            limit:
+              - message: "TYPE_CONVERSION_FAILED"
+                args: {}
+                value: "abc"

@@ -1,0 +1,5 @@
+/home/dean/Projects/release-tracker/backend/src/test/java/com/deangio/releasetracker/api/DeploymentControllerTest.java
+/home/dean/Projects/release-tracker/backend/src/test/java/com/deangio/releasetracker/domain/DeploymentStatusTest.java
+/home/dean/Projects/release-tracker/backend/src/test/java/com/deangio/releasetracker/domain/DeploymentTest.java
+/home/dean/Projects/release-tracker/backend/src/test/java/com/deangio/releasetracker/domain/PageResponseTest.java
+/home/dean/Projects/release-tracker/backend/src/test/java/com/deangio/releasetracker/repository/DeploymentRepositoryTest.java

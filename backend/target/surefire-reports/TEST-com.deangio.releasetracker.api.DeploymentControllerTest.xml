@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.854" tests="20" errors="0" skipped="0" failures="2">
+  <properties>
+    <property name="java.specification.version" value="27"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/dean/Projects/release-tracker/backend/target/test-classes:/home/dean/Projects/release-tracker/backend/target/classes:/home/dean/.m2/repository/com/zaxxer/HikariCP/7.1.0/HikariCP-7.1.0.jar:/home/dean/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/dean/.m2/repository/org/flywaydb/flyway-database-postgresql/13.12.1/flyway-database-postgresql-13.12.1.jar:/home/dean/.m2/repository/org/flywaydb/flyway-core/13.12.1/flyway-core-13.12.1.jar:/home/dean/.m2/repository/org/flywaydb/flyway-database-cockroachdb/13.12.1/flyway-database-cockroachdb-13.12.1.jar:/home/dean/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/home/dean/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/home/dean/.m2/repository/io/javalin/javalin-bundle/7.2.4/javalin-bundle-7.2.4.jar:/home/dean/.m2/repository/io/javalin/javalin/7.2.4/javalin-7.2.4.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-server/12.1.14/jetty-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-http/12.1.14/jetty-http-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-util/12.1.14/jetty-util-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-io/12.1.14/jetty-io-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-servlet/12.1.14/jetty-ee10-servlet-12.1.14.jar:/home/dean/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-security/12.1.14/jetty-security-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-session/12.1.14/jetty-session-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/websocket/jetty-ee10-websocket-jetty-server/12.1.14/jetty-ee10-websocket-jetty-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-annotations/12.1.14/jetty-ee10-annotations-12.1.14.jar:/home/dean/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-annotations/12.1.14/jetty-annotations-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-plus/12.1.14/jetty-ee10-plus-12.1.14.jar:/home/dean/.m2/repository/jakarta/enterprise/jakarta.enterprise.cdi-api/4.0.1/jakarta.enterprise.cdi-api-4.0.1.jar:/home/dean/.m2/repository/jakarta/enterprise/jakarta.enterprise.lang-model/4.0.1/jakarta.enterprise.lang-model-4.0.1.jar:/home/dean/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/dean/.m2/repository/jakarta/interceptor/jakarta.interceptor-api/2.1.0/jakarta.interceptor-api-2.1.0.jar:/home/dean/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-jndi/12.1.14/jetty-jndi-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-plus/12.1.14/jetty-plus-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-webapp/12.1.14/jetty-ee10-webapp-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-xml/12.1.14/jetty-xml-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee/jetty-ee-webapp/12.1.14/jetty-ee-webapp-12.1.14.jar:/home/dean/.m2/repository/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar:/home/dean/.m2/repository/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar:/home/dean/.m2/repository/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/websocket/jetty-ee10-websocket-servlet/12.1.14/jetty-ee10-websocket-servlet-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-core-server/12.1.14/jetty-websocket-core-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-api/12.1.14/jetty-websocket-jetty-api-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-common/12.1.14/jetty-websocket-jetty-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-core-common/12.1.14/jetty-websocket-core-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-server/12.1.14/jetty-websocket-jetty-server-12.1.14.jar:/home/dean/.m2/repository/io/javalin/javalin-context-mock/7.2.4/javalin-context-mock-7.2.4.jar:/home/dean/.m2/repository/org/eclipse/jetty/toolchain/jetty-jakarta-servlet-api/5.0.2/jetty-jakarta-servlet-api-5.0.2.jar:/home/dean/.m2/repository/io/javalin/javalin-testtools/7.2.4/javalin-testtools-7.2.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.22.4/jackson-databind-2.22.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.22/jackson-annotations-2.22.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.22.4/jackson-core-2.22.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/module/jackson-module-kotlin/2.22.4/jackson-module-kotlin-2.22.4.jar:/home/dean/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/2.1.21/kotlin-reflect-2.1.21.jar:/home/dean/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.22.4/jackson-datatype-jsr310-2.22.4.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.23.0/brotli4j-1.23.0.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/service/1.23.0/service-1.23.0.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/native-linux-x86_64/1.23.0/native-linux-x86_64-1.23.0.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-server/12.1.14/jetty-http2-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-common/12.1.14/jetty-http2-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-hpack/12.1.14/jetty-http2-hpack-12.1.14.jar:/home/dean/.m2/repository/ch/qos/logback/logback-classic/1.6.5/logback-classic-1.6.5.jar:/home/dean/.m2/repository/ch/qos/logback/logback-core/1.6.5/logback-core-1.6.5.jar:/home/dean/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.jar:/home/dean/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/dean/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/dean/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/dean/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/dean/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/dean/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/dean/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-junit-jupiter/2.0.5/testcontainers-junit-jupiter-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers/2.0.5/testcontainers-2.0.5.jar:/home/dean/.m2/repository/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar:/home/dean/.m2/repository/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar:/home/dean/.m2/repository/commons-io/commons-io/2.20.0/commons-io-2.20.0.jar:/home/dean/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/home/dean/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-api/3.7.1/docker-java-api-3.7.1.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.7.1/docker-java-transport-zerodep-3.7.1.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-transport/3.7.1/docker-java-transport-3.7.1.jar:/home/dean/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-postgresql/2.0.5/testcontainers-postgresql-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-jdbc/2.0.5/testcontainers-jdbc-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-database-commons/2.0.5/testcontainers-database-commons-2.0.5.jar:/home/dean/.m2/repository/org/mockito/mockito-core/5.24.0/mockito-core-5.24.0.jar:/home/dean/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar:/home/dean/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="java.vm.vendor" value="Red Hat, Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="net.bytebuddy.experimental" value="true"/>
+    <property name="java.vendor.url" value="https://www.redhat.com/"/>
+    <property name="user.timezone" value="America/New_York"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="27"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-latest-openjdk/lib"/>
+    <property name="sun.java.command" value="/home/dean/Projects/release-tracker/backend/target/surefire/surefirebooter-20261109224258308_3.jar /home/dean/Projects/release-tracker/backend/target/surefire 2026-11-09T22-42-58_278-jvmRun1 surefire-20261109224258308_1tmp surefire_0-20261109224258308_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/dean/Projects/release-tracker/backend/target/test-classes:/home/dean/Projects/release-tracker/backend/target/classes:/home/dean/.m2/repository/com/zaxxer/HikariCP/7.1.0/HikariCP-7.1.0.jar:/home/dean/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/dean/.m2/repository/org/flywaydb/flyway-database-postgresql/13.12.1/flyway-database-postgresql-13.12.1.jar:/home/dean/.m2/repository/org/flywaydb/flyway-core/13.12.1/flyway-core-13.12.1.jar:/home/dean/.m2/repository/org/flywaydb/flyway-database-cockroachdb/13.12.1/flyway-database-cockroachdb-13.12.1.jar:/home/dean/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/home/dean/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/home/dean/.m2/repository/io/javalin/javalin-bundle/7.2.4/javalin-bundle-7.2.4.jar:/home/dean/.m2/repository/io/javalin/javalin/7.2.4/javalin-7.2.4.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-server/12.1.14/jetty-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-http/12.1.14/jetty-http-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-util/12.1.14/jetty-util-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-io/12.1.14/jetty-io-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-servlet/12.1.14/jetty-ee10-servlet-12.1.14.jar:/home/dean/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-security/12.1.14/jetty-security-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-session/12.1.14/jetty-session-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/websocket/jetty-ee10-websocket-jetty-server/12.1.14/jetty-ee10-websocket-jetty-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-annotations/12.1.14/jetty-ee10-annotations-12.1.14.jar:/home/dean/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-annotations/12.1.14/jetty-annotations-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-plus/12.1.14/jetty-ee10-plus-12.1.14.jar:/home/dean/.m2/repository/jakarta/enterprise/jakarta.enterprise.cdi-api/4.0.1/jakarta.enterprise.cdi-api-4.0.1.jar:/home/dean/.m2/repository/jakarta/enterprise/jakarta.enterprise.lang-model/4.0.1/jakarta.enterprise.lang-model-4.0.1.jar:/home/dean/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/dean/.m2/repository/jakarta/interceptor/jakarta.interceptor-api/2.1.0/jakarta.interceptor-api-2.1.0.jar:/home/dean/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-jndi/12.1.14/jetty-jndi-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-plus/12.1.14/jetty-plus-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/jetty-ee10-webapp/12.1.14/jetty-ee10-webapp-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/jetty-xml/12.1.14/jetty-xml-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee/jetty-ee-webapp/12.1.14/jetty-ee-webapp-12.1.14.jar:/home/dean/.m2/repository/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar:/home/dean/.m2/repository/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar:/home/dean/.m2/repository/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar:/home/dean/.m2/repository/org/eclipse/jetty/ee10/websocket/jetty-ee10-websocket-servlet/12.1.14/jetty-ee10-websocket-servlet-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-core-server/12.1.14/jetty-websocket-core-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-api/12.1.14/jetty-websocket-jetty-api-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-common/12.1.14/jetty-websocket-jetty-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-core-common/12.1.14/jetty-websocket-core-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/websocket/jetty-websocket-jetty-server/12.1.14/jetty-websocket-jetty-server-12.1.14.jar:/home/dean/.m2/repository/io/javalin/javalin-context-mock/7.2.4/javalin-context-mock-7.2.4.jar:/home/dean/.m2/repository/org/eclipse/jetty/toolchain/jetty-jakarta-servlet-api/5.0.2/jetty-jakarta-servlet-api-5.0.2.jar:/home/dean/.m2/repository/io/javalin/javalin-testtools/7.2.4/javalin-testtools-7.2.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.22.4/jackson-databind-2.22.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.22/jackson-annotations-2.22.jar:/home/dean/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.22.4/jackson-core-2.22.4.jar:/home/dean/.m2/repository/com/fasterxml/jackson/module/jackson-module-kotlin/2.22.4/jackson-module-kotlin-2.22.4.jar:/home/dean/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/2.1.21/kotlin-reflect-2.1.21.jar:/home/dean/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.22.4/jackson-datatype-jsr310-2.22.4.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.23.0/brotli4j-1.23.0.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/service/1.23.0/service-1.23.0.jar:/home/dean/.m2/repository/com/aayushatharva/brotli4j/native-linux-x86_64/1.23.0/native-linux-x86_64-1.23.0.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-server/12.1.14/jetty-http2-server-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-common/12.1.14/jetty-http2-common-12.1.14.jar:/home/dean/.m2/repository/org/eclipse/jetty/http2/jetty-http2-hpack/12.1.14/jetty-http2-hpack-12.1.14.jar:/home/dean/.m2/repository/ch/qos/logback/logback-classic/1.6.5/logback-classic-1.6.5.jar:/home/dean/.m2/repository/ch/qos/logback/logback-core/1.6.5/logback-core-1.6.5.jar:/home/dean/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.jar:/home/dean/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/dean/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/dean/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/dean/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/dean/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:/home/dean/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/dean/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/home/dean/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-junit-jupiter/2.0.5/testcontainers-junit-jupiter-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers/2.0.5/testcontainers-2.0.5.jar:/home/dean/.m2/repository/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar:/home/dean/.m2/repository/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar:/home/dean/.m2/repository/commons-io/commons-io/2.20.0/commons-io-2.20.0.jar:/home/dean/.m2/repository/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar:/home/dean/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-api/3.7.1/docker-java-api-3.7.1.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.7.1/docker-java-transport-zerodep-3.7.1.jar:/home/dean/.m2/repository/com/github/docker-java/docker-java-transport/3.7.1/docker-java-transport-3.7.1.jar:/home/dean/.m2/repository/net/java/dev/jna/jna/5.18.1/jna-5.18.1.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-postgresql/2.0.5/testcontainers-postgresql-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-jdbc/2.0.5/testcontainers-jdbc-2.0.5.jar:/home/dean/.m2/repository/org/testcontainers/testcontainers-database-commons/2.0.5/testcontainers-database-commons-2.0.5.jar:/home/dean/.m2/repository/org/mockito/mockito-core/5.24.0/mockito-core-5.24.0.jar:/home/dean/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.7/byte-buddy-agent-1.17.7.jar:/home/dean/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/dean"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-09-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-latest-openjdk"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/dean/Projects/release-tracker/backend"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/home/dean/Projects/release-tracker/backend/target/surefire/surefirebooter-20261109224258308_3.jar"/>
+    <property name="polyglot.engine.WarnInterpreterOnly" value="false"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="27-ea+35"/>
+    <property name="user.name" value="dean"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="7.2.15-200.fc44.x86_64"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="(Red_Hat-27.0.0.0.35-1)"/>
+    <property name="localRepository" value="/home/dean/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugzilla.redhat.com/enter_bug.cgi?product=Fedora&amp;component=java-latest-openjdk&amp;version=43"/>
+    <property name="jetty.git.hash" value="15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="27-ea"/>
+    <property name="user.dir" value="/home/dean/Projects/release-tracker/backend"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Red Hat, Inc."/>
+    <property name="java.vm.version" value="27-ea+35"/>
+    <property name="stdin.encoding" value="UTF-8"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="71.0"/>
+  </properties>
+  <testcase name="listPassesLimitAndOffsetToRepository" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.595"/>
+  <testcase name="updateStatusReturns409WhenRepositoryLosesRace" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.024">
+    <failure message="&#10;expected: 409&#10; but was: 400" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: 
+
+expected: 409
+ but was: 400
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.lambda$15(DeploymentControllerTest.java:253)
+	at io.javalin.testtools.TestTool.test$lambda$0(TestTool.kt:43)
+	at io.javalin.testtools.TestTool.runAndCaptureLogs(TestTool.kt:71)
+	at io.javalin.testtools.TestTool.test(TestTool.kt:40)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt:13)
+	at io.javalin.testtools.JavalinTest.test$default(JavalinTest.kt:12)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusReturns409WhenRepositoryLosesRace(DeploymentControllerTest.java:249)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+]]></failure>
+    <system-out><![CDATA[22:43:01.602 [main] ERROR io.javalin.Javalin - JavalinTest#test failed - full log output below:
+22:43:01.582 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:43:01.582 [main] INFO  org.eclipse.jetty.server.Server - jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 27-ea+35
+22:43:01.583 [main] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+22:43:01.583 [main] INFO  o.e.j.server.handler.ContextHandler - Started oeje10s.ServletContextHandler@4db6348b{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@7742a276{STARTED}}
+22:43:01.584 [main] INFO  o.e.j.e.s.ServletContextHandler - Started oeje10s.ServletContextHandler@4db6348b{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@7742a276{STARTED}}
+22:43:01.584 [main] INFO  o.e.jetty.server.AbstractConnector - Started oejs.ServerConnector@20231384{HTTP/1.1, (http/1.1)}{0.0.0.0:39049}
+22:43:01.584 [main] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@7c4ca87c{STARTING}[12.1.14,sto=0] @1ms
+22:43:01.584 [main] INFO  io.javalin.Javalin - 
+       __                  ___          _____
+      / /___ __   ______ _/ (_)___     /__  /
+ __  / / __ `/ | / / __ `/ / / __ \      / /
+/ /_/ / /_/ /| |/ / /_/ / / / / / /     / /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/     /_/
+
+       https://javalin.io/documentation
+
+22:43:01.584 [main] INFO  io.javalin.Javalin - Javalin started in 2ms \o/
+22:43:01.584 [main] INFO  io.javalin.Javalin - Listening on http://localhost:39049/
+22:43:01.585 [main] INFO  io.javalin.Javalin - You are running Javalin 7.2.4 (released October 25, 2026).
+
+]]></system-out>
+  </testcase>
+  <testcase name="updateStatusReturns404ForUnknownId" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.011"/>
+  <testcase name="getByIdReturns404WhenMissing" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.01"/>
+  <testcase name="listRejectsInvalidPaging(String)[1]" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.065"/>
+  <testcase name="listRejectsInvalidPaging(String)[2]" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.008"/>
+  <testcase name="listRejectsInvalidPaging(String)[3]" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="listRejectsInvalidPaging(String)[4]" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="listRejectsInvalidPaging(String)[5]" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="updateStatusReturns409ForInvalidTransition" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="getByIdReturnsDeployment" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.016"/>
+  <testcase name="createReturns400WhenValidationFails" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="updateStatusTransitionsAndPersists" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.005">
+    <failure message="&#10;expected: 200&#10; but was: 400" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: 
+
+expected: 200
+ but was: 400
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.lambda$12(DeploymentControllerTest.java:223)
+	at io.javalin.testtools.TestTool.test$lambda$0(TestTool.kt:43)
+	at io.javalin.testtools.TestTool.runAndCaptureLogs(TestTool.kt:71)
+	at io.javalin.testtools.TestTool.test(TestTool.kt:40)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt:13)
+	at io.javalin.testtools.JavalinTest.test$default(JavalinTest.kt:12)
+	at io.javalin.testtools.JavalinTest.test(JavalinTest.kt)
+	at com.deangio.releasetracker.api.DeploymentControllerTest.updateStatusTransitionsAndPersists(DeploymentControllerTest.java:217)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+]]></failure>
+    <system-out><![CDATA[22:43:01.764 [main] ERROR io.javalin.Javalin - JavalinTest#test failed - full log output below:
+22:43:01.760 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+22:43:01.760 [main] INFO  org.eclipse.jetty.server.Server - jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 27-ea+35
+22:43:01.761 [main] INFO  o.e.j.s.DefaultSessionIdManager - Session workerName=node0
+22:43:01.761 [main] INFO  o.e.j.server.handler.ContextHandler - Started oeje10s.ServletContextHandler@2adc1e84{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@2a99fa07{STARTED}}
+22:43:01.761 [main] INFO  o.e.j.e.s.ServletContextHandler - Started oeje10s.ServletContextHandler@2adc1e84{ROOT,/,b=null,a=AVAILABLE,h=oeje10s.SessionHandler@2a99fa07{STARTED}}
+22:43:01.761 [main] INFO  o.e.jetty.server.AbstractConnector - Started oejs.ServerConnector@2de7c84a{HTTP/1.1, (http/1.1)}{0.0.0.0:44317}
+22:43:01.761 [main] INFO  org.eclipse.jetty.server.Server - Started oejs.Server@507f47f9{STARTING}[12.1.14,sto=0] @1ms
+22:43:01.761 [main] INFO  io.javalin.Javalin - 
+       __                  ___          _____
+      / /___ __   ______ _/ (_)___     /__  /
+ __  / / __ `/ | / / __ `/ / / __ \      / /
+/ /_/ / /_/ /| |/ / /_/ / / / / / /     / /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/     /_/
+
+       https://javalin.io/documentation
+
+22:43:01.761 [main] INFO  io.javalin.Javalin - Javalin started in 1ms \o/
+22:43:01.761 [main] INFO  io.javalin.Javalin - Listening on http://localhost:44317/
+22:43:01.762 [main] INFO  io.javalin.Javalin - You are running Javalin 7.2.4 (released October 25, 2026).
+
+]]></system-out>
+  </testcase>
+  <testcase name="listPassesLimitAndOffsetAndReturnsEnvelope" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.011"/>
+  <testcase name="updateStatusReturns400WhenTransitionMissing" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.008"/>
+  <testcase name="listReturnsNullNextOffsetOnLastPage" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.011"/>
+  <testcase name="getByIdReturns400ForMalformedUuid" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.007"/>
+  <testcase name="listUsesDefaultsWhenParamsAbsent" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.008"/>
+  <testcase name="createReturns400ForUnknownEnvironment" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.008"/>
+  <testcase name="createReturns201WithLocationAndPersists" classname="com.deangio.releasetracker.api.DeploymentControllerTest" time="0.018"/>
+</testsuite>
